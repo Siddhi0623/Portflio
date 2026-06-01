@@ -1,0 +1,156 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html { scroll-behavior: smooth; }
+
+body {
+  background-color: #faf6f0;
+  color: #1a1a1a;
+  font-family: 'DM Sans', system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection { background: rgba(201,76,46,0.18); }
+
+/* ---- layout helpers ---- */
+.container-max { @apply max-w-6xl mx-auto px-5 md:px-10; }
+.section-pad    { @apply py-20 md:py-28; }
+
+/* ---- nav ---- */
+.nav-link {
+  @apply text-[13px] font-semibold tracking-nav uppercase text-ink/70
+         hover:text-terracotta transition-colors duration-200 relative;
+}
+.nav-link.active::after {
+  content: '';
+  @apply absolute -bottom-1 left-0 right-0 h-0.5 bg-terracotta rounded-full;
+}
+
+/* ---- buttons ---- */
+.btn-terra {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background-color: #c94c2e;
+  color: #ffffff;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 12px 28px;
+  border: none;
+  cursor: pointer;
+  box-shadow: 4px 5px 0px #8b2800;
+  transition: transform 0.1s, box-shadow 0.1s;
+}
+.btn-terra:hover {
+  transform: translate(2px, 2px);
+  box-shadow: 2px 3px 0px #8b2800;
+}
+.btn-terra:active {
+  transform: translate(4px, 5px);
+  box-shadow: 0px 0px 0px #8b2800;
+}
+
+.btn-terra-outline {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background-color: transparent;
+  color: #c94c2e;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 11px 28px;
+  border: 2px solid #c94c2e;
+  cursor: pointer;
+  box-shadow: 4px 5px 0px rgba(201,76,46,0.25);
+  transition: transform 0.1s, box-shadow 0.1s, background-color 0.2s;
+}
+.btn-terra-outline:hover {
+  background-color: #c94c2e;
+  color: #fff;
+  transform: translate(2px, 2px);
+  box-shadow: 2px 3px 0px rgba(139,40,0,0.4);
+}
+
+/* ---- section eyebrow ---- */
+.eyebrow {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: #1a1a1a;
+}
+
+/* ---- section heading ---- */
+.section-title {
+  font-family: 'DM Sans', sans-serif;
+  font-size: clamp(28px, 5vw, 42px);
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #1a1a1a;
+  text-align: center;
+}
+
+/* ---- skill cards ---- */
+.skill-card {
+  padding: 28px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.skill-icon-box {
+  width: 56px;
+  height: 56px;
+  border: 2px solid rgba(0,0,0,0.18);
+  display: grid;
+  place-items: center;
+  background: rgba(255,255,255,0.5);
+  flex-shrink: 0;
+}
+
+/* ---- floating icon chips ---- */
+.float-chip {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: #fff;
+  padding: 6px 12px;
+  border-radius: 50px;
+  font-size: 11px;
+  font-weight: 600;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+  white-space: nowrap;
+}
+
+/* ---- project tag pill ---- */
+.project-tag {
+  display: inline-block;
+  background: #f5c0b0;
+  color: #1a1a1a;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 6px 18px;
+  border-radius: 50px;
+  margin-bottom: 16px;
+}
+
+/* ---- contact icon box ---- */
+.contact-icon-box {
+  width: 56px;
+  height: 56px;
+  background: #c94c2e;
+  display: grid;
+  place-items: center;
+  color: white;
+  flex-shrink: 0;
+}
