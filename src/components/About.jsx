@@ -9,35 +9,39 @@ export default function About() {
     <section id="about" className="section-pad" style={{ backgroundColor: '#f0ebe2' }}>
       <div className="container-max grid md:grid-cols-2 gap-12 md:gap-16 items-center">
 
-        {/* Left — visual panel */}
-        <div className="relative">
-          <div className="grid grid-cols-2 gap-4">
-            <div className="bg-[#c5e8e0] p-6 flex flex-col gap-2">
-              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#1a1a1a" strokeWidth="1.5"><rect x="2" y="3" width="20" height="14" rx="1"/><path d="M8 21h8M12 17v4"/></svg>
-              <p className="font-bold text-ink text-sm uppercase tracking-wide mt-2">Frontend</p>
-              <p className="text-muted text-xs">React, Tailwind, JS</p>
-            </div>
-            <div className="bg-[#f5d88c] p-6 flex flex-col gap-2">
-              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#1a1a1a" strokeWidth="1.5"><path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/><circle cx="12" cy="20" r="1"/></svg>
-              <p className="font-bold text-ink text-sm uppercase tracking-wide mt-2">Backend</p>
-              <p className="text-muted text-xs">Node, Express, APIs</p>
-            </div>
-            <div className="bg-[#f5c0b0] p-6 flex flex-col gap-2">
-              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#1a1a1a" strokeWidth="1.5"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4.03 3-9 3S3 13.66 3 12"/><path d="M3 5v14c0 1.66 4.03 3 9 3s9-1.34 9-3V5"/></svg>
-              <p className="font-bold text-ink text-sm uppercase tracking-wide mt-2">Database</p>
-              <p className="text-muted text-xs">MongoDB, SQL</p>
-            </div>
-            <div className="bg-[#c0cff5] p-6 flex flex-col gap-2">
-              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#1a1a1a" strokeWidth="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
-              <p className="font-bold text-ink text-sm uppercase tracking-wide mt-2">Deployment</p>
-              <p className="text-muted text-xs">Vercel, Git, Linux</p>
-            </div>
+        {/* Left — unified flush grid */}
+        <div>
+          {/* 2×2 colored skill cards — no gap, border-separated */}
+          <div className="grid grid-cols-2 border border-black/12">
+            {[
+              { bg: '#c5e8e0', label: 'Frontend',   sub: 'React, Tailwind, JS',
+                icon: <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#1a1a1a" strokeWidth="1.5"><rect x="2" y="3" width="20" height="14" rx="1"/><path d="M8 21h8M12 17v4"/></svg> },
+              { bg: '#f5d88c', label: 'Backend',    sub: 'Node, Express, APIs',
+                icon: <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#1a1a1a" strokeWidth="1.5"><path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/><circle cx="12" cy="20" r="1"/></svg> },
+              { bg: '#f5c0b0', label: 'Database',   sub: 'MongoDB, SQL',
+                icon: <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#1a1a1a" strokeWidth="1.5"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4.03 3-9 3S3 13.66 3 12"/><path d="M3 5v14c0 1.66 4.03 3 9 3s9-1.34 9-3V5"/></svg> },
+              { bg: '#c0cff5', label: 'Deployment', sub: 'Vercel, Git, Linux',
+                icon: <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#1a1a1a" strokeWidth="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg> },
+            ].map((c, i) => (
+              <div
+                key={c.label}
+                className={`p-6 flex flex-col gap-2 border-black/12 ${i % 2 === 0 ? 'border-r' : ''} ${i < 2 ? 'border-b' : ''}`}
+                style={{ backgroundColor: c.bg }}
+              >
+                {c.icon}
+                <p className="font-bold text-ink text-sm uppercase tracking-wide mt-2">{c.label}</p>
+                <p className="text-muted text-xs">{c.sub}</p>
+              </div>
+            ))}
           </div>
 
-          {/* Stats row */}
-          <div className="mt-6 grid grid-cols-3 gap-3">
-            {stats.map(s => (
-              <div key={s.label} className="bg-white text-center py-4 px-2 border-b-2 border-terracotta">
+          {/* Stats row — same width, flush with card grid above */}
+          <div className="grid grid-cols-3 border border-t-0 border-black/12">
+            {stats.map((s, i) => (
+              <div
+                key={s.label}
+                className={`bg-white text-center py-5 px-2 border-black/12 ${i < 2 ? 'border-r' : ''}`}
+              >
                 <div className="font-bold text-2xl text-terracotta font-display">{s.value}</div>
                 <div className="text-[11px] uppercase tracking-wide text-muted mt-1">{s.label}</div>
               </div>
