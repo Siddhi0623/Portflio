@@ -51,7 +51,7 @@ export default function Journey() {
     <section id="journey" className="section-pad" style={{ backgroundColor: '#faf6f0' }}>
       <div className="container-max">
         {/* Header */}
-        <div className="text-center mb-16">
+        <div className="text-center mb-8">
           <p className="eyebrow mb-3">How I got here</p>
           <h2 className="section-title">My Journey</h2>
           <div className="flex justify-center gap-1 mt-4">

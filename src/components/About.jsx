@@ -15,81 +15,88 @@ const cards = [
     icon: <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#1a1a1a" strokeWidth="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg> },
 ]
 
+const B = '1px solid rgba(0,0,0,0.15)'
+
 export default function About() {
   return (
-    <section id="about" className="py-16 md:py-20" style={{ backgroundColor: '#f0ebe2' }}>
-      <div className="container-max grid md:grid-cols-2 gap-8 md:gap-10 items-start">
+    <section id="about" style={{ backgroundColor: '#f0ebe2', padding: '56px 0' }}>
+      <div className="container-max">
+        <div style={{
+          display: 'grid',
+          gridTemplateColumns: 'repeat(2, 1fr)',
+          gap: '40px',
+          alignItems: 'stretch',
+        }}>
 
-        {/* Left — flush unified grid */}
-        <div className="w-full">
-          {/* 2×2 coloured cards */}
-          <div className="grid grid-cols-2" style={{ border: '1px solid rgba(0,0,0,0.15)' }}>
-            {cards.map((c, i) => (
-              <div
-                key={c.label}
-                className="p-5 flex flex-col gap-2"
-                style={{
+          {/* ── Left: flex column, stretches to match right height ── */}
+          <div style={{ display: 'flex', flexDirection: 'column', border: B }}>
+
+            {/* 2×2 cards — flex:1 fills remaining space */}
+            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', flex: 1 }}>
+              {cards.map((c, i) => (
+                <div key={c.label} style={{
                   backgroundColor: c.bg,
-                  borderRight:  i % 2 === 0 ? '1px solid rgba(0,0,0,0.15)' : 'none',
-                  borderBottom: i < 2       ? '1px solid rgba(0,0,0,0.15)' : 'none',
-                }}
-              >
-                {c.icon}
-                <p className="font-bold text-ink text-[13px] uppercase tracking-wide mt-2">{c.label}</p>
-                <p className="text-muted text-xs">{c.sub}</p>
-              </div>
-            ))}
+                  padding: '20px',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  gap: '8px',
+                  borderRight:  i % 2 === 0 ? B : 'none',
+                  borderBottom: i < 2       ? B : 'none',
+                }}>
+                  {c.icon}
+                  <p style={{ fontWeight: 700, fontSize: '12px', textTransform: 'uppercase', letterSpacing: '0.1em', marginTop: '8px', color: '#1a1a1a' }}>{c.label}</p>
+                  <p style={{ fontSize: '12px', color: '#6b6b6b' }}>{c.sub}</p>
+                </div>
+              ))}
+            </div>
+
+            {/* Stats — fixed at bottom */}
+            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', borderTop: B }}>
+              {stats.map((s, i) => (
+                <div key={s.label} style={{
+                  backgroundColor: '#fff',
+                  textAlign: 'center',
+                  padding: '16px 8px',
+                  borderRight: i < 2 ? B : 'none',
+                }}>
+                  <div style={{ fontWeight: 700, fontSize: '22px', color: '#c94c2e', fontFamily: '"Playfair Display", serif', lineHeight: 1 }}>{s.value}</div>
+                  <div style={{ fontSize: '10px', textTransform: 'uppercase', letterSpacing: '0.12em', color: '#6b6b6b', marginTop: '6px' }}>{s.label}</div>
+                </div>
+              ))}
+            </div>
           </div>
 
-          {/* Stats row — sits flush under the cards */}
-          <div
-            className="grid grid-cols-3"
-            style={{ border: '1px solid rgba(0,0,0,0.15)', borderTop: 'none' }}
-          >
-            {stats.map((s, i) => (
-              <div
-                key={s.label}
-                className="bg-white text-center py-4 px-2"
-                style={{ borderRight: i < 2 ? '1px solid rgba(0,0,0,0.15)' : 'none' }}
-              >
-                <div className="font-bold text-[22px] text-terracotta font-display leading-none">{s.value}</div>
-                <div className="text-[10px] uppercase tracking-widest text-muted mt-1.5">{s.label}</div>
-              </div>
-            ))}
+          {/* ── Right: text, vertically centered ── */}
+          <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+            <p className="eyebrow" style={{ marginBottom: '12px' }}>About Me</p>
+            <h2 style={{ fontFamily: '"DM Sans", sans-serif', fontWeight: 700, fontSize: 'clamp(24px, 3vw, 36px)', lineHeight: 1.2, color: '#1a1a1a', marginBottom: '20px' }}>
+              I'm a Full Stack Developer<br />building for the web.
+            </h2>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '12px', fontSize: '14.5px', lineHeight: 1.7, color: '#6b6b6b' }}>
+              <p>
+                I'm a Computer Engineering student from Pune who got completely
+                hooked on web development and hasn't looked back since. Most of
+                my time goes into building things with React, Node, and Express —
+                making them feel fast, clean, and intuitive to use.
+              </p>
+              <p>
+                Right now I work as a{' '}
+                <span style={{ color: '#c94c2e', fontWeight: 600 }}>Full Stack Developer at CodeServeTech Pvt Ltd</span>,
+                where I ship real features for real users. Before that I trained at
+                Corizo. What I love most is the loop — build an idea, put it in
+                front of people, then make it better.
+              </p>
+              <p>
+                Outside of code I'm reading about system design, exploring new
+                tools, or pushing a side project across the finish line.
+              </p>
+            </div>
+            <div style={{ marginTop: '28px' }}>
+              <a href="#contact" className="btn-terra">Get in Touch</a>
+            </div>
           </div>
+
         </div>
-
-        {/* Right — text */}
-        <div className="pt-1">
-          <p className="eyebrow mb-3">About Me</p>
-          <h2 className="font-sans font-bold text-ink leading-tight mb-5"
-              style={{ fontSize: 'clamp(24px, 3.5vw, 38px)' }}>
-            I'm a Full Stack Developer<br />building for the web.
-          </h2>
-          <div className="space-y-3 text-muted text-[14.5px] leading-relaxed">
-            <p>
-              I'm a Computer Engineering student from Pune who got completely
-              hooked on web development and hasn't looked back since. Most of
-              my time goes into building things with React, Node, and Express —
-              making them feel fast, clean, and intuitive to use.
-            </p>
-            <p>
-              Right now I work as a{' '}
-              <span className="text-terracotta font-semibold">Full Stack Developer at CodeServeTech Pvt Ltd</span>,
-              where I ship real features for real users. Before that I trained at
-              Corizo. What I love most is the loop — build an idea, put it in
-              front of people, then make it better.
-            </p>
-            <p>
-              Outside of code I'm reading about system design, exploring new
-              tools, or pushing a side project across the finish line.
-            </p>
-          </div>
-          <div className="mt-7">
-            <a href="#contact" className="btn-terra">Get in Touch</a>
-          </div>
-        </div>
-
       </div>
     </section>
   )

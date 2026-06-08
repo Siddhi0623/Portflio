@@ -79,7 +79,7 @@ export default function Skills() {
     <section id="skills" className="section-pad" style={{ backgroundColor: '#f0ebe2' }}>
       <div className="container-max">
         {/* Header */}
-        <div className="text-center mb-14">
+        <div className="text-center mb-8">
           <p className="eyebrow mb-3">What I know</p>
           <h2 className="section-title">My Skills</h2>
           <div className="flex justify-center gap-1 mt-4">

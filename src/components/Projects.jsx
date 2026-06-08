@@ -69,7 +69,7 @@ export default function Projects() {
     <section id="projects" className="section-pad" style={{ backgroundColor: '#faf6f0' }}>
       <div className="container-max">
         {/* Header */}
-        <div className="text-center mb-16">
+        <div className="text-center mb-8">
           <p className="eyebrow mb-3">Work I'm proud of</p>
           <h2 className="section-title">My Projects</h2>
           <div className="flex justify-center gap-1 mt-4">
@@ -80,7 +80,7 @@ export default function Projects() {
         </div>
 
         {/* Project rows */}
-        <div className="space-y-24">
+        <div className="space-y-14">
           {projects.map((p) => (
             <div
               key={p.title}

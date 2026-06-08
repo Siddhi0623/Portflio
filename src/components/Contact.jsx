@@ -55,8 +55,7 @@ export default function Contact() {
       <div className="container-max">
 
         {/* Header */}
-        <div className="text-center mb-16">
-          <p className="eyebrow mb-3">Don't be shy</p>
+        <div className="text-center mb-8">
           <h2 className="section-title">Get In Touch</h2>
           <div className="flex justify-center gap-1 mt-4">
             {[0,1,2].map(i => (

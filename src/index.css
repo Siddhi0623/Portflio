@@ -14,8 +14,8 @@ body {
 ::selection { background: rgba(201,76,46,0.18); }
 
 /* ---- layout helpers ---- */
-.container-max { @apply max-w-6xl mx-auto px-5 md:px-10; }
-.section-pad    { @apply py-20 md:py-28; }
+.container-max { @apply max-w-7xl mx-auto px-4 md:px-8; }
+.section-pad    { @apply py-12 md:py-16; }
 
 /* ---- nav ---- */
 .nav-link {
