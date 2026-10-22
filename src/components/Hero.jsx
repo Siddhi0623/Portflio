@@ -70,34 +70,7 @@ export default function Hero() {
         </div>
 
         <div className="relative flex min-h-[320px] items-center justify-center animate-fade-up md:min-h-[430px]">
-          <div
-            aria-hidden="true"
-            className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full border border-terracotta/20"
-            style={{ width: 'min(76vw, 430px)', height: 'min(76vw, 430px)' }}
-          />
-
-          <span aria-hidden="true" className="absolute bottom-[-26px] right-0 z-0 select-none font-display text-[clamp(130px,20vw,220px)] font-bold leading-none text-terracotta/5">
-            SK
-          </span>
-
-          <div className="float-chip absolute z-20 hidden lg:flex" style={{ top: '12%', left: '-20%' }}>
-            <span style={{ color: '#61DAFB' }}>⚛</span> React.js
-          </div>
-          <div className="float-chip absolute z-20 hidden lg:flex" style={{ top: '17%', right: '-20%' }}>
-            <span style={{ color: '#68A063' }}>⬡</span> Node.js
-          </div>
-          <div className="float-chip absolute z-20 hidden lg:flex" style={{ bottom: '21%', left: '-20%' }}>
-            <span style={{ color: '#4DB33D' }}>🍃</span> MongoDB
-          </div>
-          <div className="float-chip absolute z-20 hidden lg:flex" style={{ bottom: '10%', right: '-20%' }}>
-            <span style={{ color: '#F7DF1E' }}>JS</span> JavaScript
-          </div>
-          <div className="float-chip absolute z-20 hidden -translate-y-1/2 lg:flex" style={{ top: '50%', right: '-20%' }}>
-            <span style={{ color: '#38BDF8' }}>◈</span> Tailwind
-          </div>
-
           <div className="relative z-10 animate-float" style={{ width: 'clamp(250px, 35vw, 390px)', height: 'clamp(250px, 35vw, 390px)' }}>
-            <div aria-hidden="true" className="absolute -inset-3 rotate-6 rounded-full border border-black/15" />
             <div className="relative h-full w-full overflow-hidden rounded-full bg-orange-hero">
               <img
                 src="/profile.jpg"
@@ -105,10 +78,6 @@ export default function Hero() {
                 className="h-full w-full object-cover"
                 style={{ objectPosition: '50% 18%', transform: 'scale(1.55)', transformOrigin: '50% 22%' }}
               />
-            </div>
-
-            <div className="absolute -bottom-3 left-1/2 -translate-x-1/2 whitespace-nowrap border-b-2 border-terracotta bg-white px-4 py-2 text-xs font-bold uppercase tracking-widest shadow-md">
-              MERN · Full Stack
             </div>
           </div>
         </div>
