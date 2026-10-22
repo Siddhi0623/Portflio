@@ -1,10 +1,11 @@
 const timeline = [
   {
-    period: 'May 2026 — Present',
+    period: 'May 2026 — June 2026',
+    status: 'Internship completed',
     role: 'Full Stack Developer',
     org: 'CodeServeTech Pvt Ltd · Pune',
     type: 'work',
-    details: ['Building production apps end-to-end with the MERN stack', 'Designing REST APIs, auth flows, and database schemas', 'Collaborating on UI, performance optimisation, and code reviews'],
+    details: ['Built production features end-to-end with the MERN stack', 'Designed REST APIs, authentication flows, and database schemas', 'Collaborated on UI, performance, and code reviews'],
   },
   {
     period: 'Jan 2024 — Feb 2024',
@@ -71,7 +72,10 @@ export default function Journey() {
               {timeline.map((t, i) => (
                 <li key={i} className="ml-6 pb-8 relative">
                   <span className={`absolute -left-[29px] top-1 w-4 h-4 rounded-full border-2 border-white ${t.type === 'work' ? 'bg-terracotta' : 'bg-[#34d399]'}`}></span>
-                  <div className="text-[11px] font-semibold uppercase tracking-wider text-muted mb-1">{t.period}</div>
+                  <div className="mb-1 flex flex-wrap items-center gap-x-3 gap-y-1">
+                    <div className="text-[11px] font-semibold uppercase tracking-wider text-muted">{t.period}</div>
+                    {t.status && <span className="text-[10px] font-bold uppercase tracking-wider text-terracotta">{t.status}</span>}
+                  </div>
                   <div className="font-bold text-ink text-[16px]">{t.role}</div>
                   <div className="text-muted text-[13px] mb-2">{t.org}</div>
                   {t.details.length > 0 && (

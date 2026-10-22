@@ -63,8 +63,8 @@ const skills = [
   },
   {
     bg: '#d8c0f0',
-    title: 'Currently At',
-    items: ['CodeServeTech Pvt Ltd', 'Full Stack Developer', 'May 2026 – Present', 'Pune, India', 'React · Node · MongoDB'],
+    title: 'Internship Completed',
+    items: ['CodeServeTech Pvt Ltd', 'Full Stack Developer', 'May 2026 – June 2026', 'Pune, India', 'React · Node · MongoDB'],
     icon: (
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
         <rect x="2" y="7" width="20" height="14" rx="2" ry="2"/>

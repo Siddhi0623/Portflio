@@ -1,78 +1,80 @@
 const stats = [
-  { value: '2+',   label: 'Years Coding' },
-  { value: '5+',   label: 'Projects Shipped' },
+  { value: '2+', label: 'Years Coding' },
+  { value: '5+', label: 'Projects Shipped' },
   { value: 'MERN', label: 'Primary Stack' },
 ]
 
-const cards = [
-  { bg: '#c5e8e0', label: 'Frontend',   sub: 'React, Tailwind, JS',
-    icon: <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#1a1a1a" strokeWidth="1.5"><rect x="2" y="3" width="20" height="14" rx="1"/><path d="M8 21h8M12 17v4"/></svg> },
-  { bg: '#f5d88c', label: 'Backend',    sub: 'Node, Express, APIs',
-    icon: <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#1a1a1a" strokeWidth="1.5"><path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/><circle cx="12" cy="20" r="1"/></svg> },
-  { bg: '#f5c0b0', label: 'Database',   sub: 'MongoDB, SQL',
-    icon: <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#1a1a1a" strokeWidth="1.5"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4.03 3-9 3S3 13.66 3 12"/><path d="M3 5v14c0 1.66 4.03 3 9 3s9-1.34 9-3V5"/></svg> },
-  { bg: '#c0cff5', label: 'Deployment', sub: 'Vercel, Git, Linux',
-    icon: <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#1a1a1a" strokeWidth="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg> },
+const capabilities = [
+  {
+    label: 'Frontend',
+    sub: 'React, Tailwind, JavaScript',
+    accent: '#c5e8e0',
+    icon: <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#1a1a1a" strokeWidth="1.5"><rect x="2" y="3" width="20" height="14" rx="1"/><path d="M8 21h8M12 17v4"/></svg>,
+  },
+  {
+    label: 'Backend',
+    sub: 'Node, Express, APIs',
+    accent: '#f5d88c',
+    icon: <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#1a1a1a" strokeWidth="1.5"><path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/><circle cx="12" cy="20" r="1"/></svg>,
+  },
+  {
+    label: 'Database',
+    sub: 'MongoDB, SQL',
+    accent: '#f5c0b0',
+    icon: <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#1a1a1a" strokeWidth="1.5"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4.03 3-9 3S3 13.66 3 12"/><path d="M3 5v14c0 1.66 4.03 3 9 3s9-1.34 9-3V5"/></svg>,
+  },
+  {
+    label: 'Deployment',
+    sub: 'Vercel, Git, Linux',
+    accent: '#c0cff5',
+    icon: <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#1a1a1a" strokeWidth="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>,
+  },
 ]
-
-const B = '1px solid rgba(0,0,0,0.15)'
 
 export default function About() {
   return (
-    <section id="about" style={{ backgroundColor: '#f0ebe2', padding: '56px 0' }}>
+    <section id="about" className="py-16 md:py-20" style={{ backgroundColor: '#f0ebe2' }}>
       <div className="container-max">
-        <div style={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(2, 1fr)',
-          gap: '40px',
-          alignItems: 'stretch',
-        }}>
+        <div className="grid items-center gap-12 lg:grid-cols-[1fr_1.05fr] lg:gap-16">
 
-          {/* ── Left: flex column, stretches to match right height ── */}
-          <div style={{ display: 'flex', flexDirection: 'column', border: B }}>
+          <div>
+            <p className="eyebrow mb-3">My toolkit</p>
+            <h2 className="mb-5 max-w-md font-display text-3xl font-bold italic leading-tight text-ink md:text-4xl">
+              From the first screen to the final deploy.
+            </h2>
 
-            {/* 2×2 cards — flex:1 fills remaining space */}
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', flex: 1 }}>
-              {cards.map((c, i) => (
-                <div key={c.label} style={{
-                  backgroundColor: c.bg,
-                  padding: '20px',
-                  display: 'flex',
-                  flexDirection: 'column',
-                  gap: '8px',
-                  borderRight:  i % 2 === 0 ? B : 'none',
-                  borderBottom: i < 2       ? B : 'none',
-                }}>
-                  {c.icon}
-                  <p style={{ fontWeight: 700, fontSize: '12px', textTransform: 'uppercase', letterSpacing: '0.1em', marginTop: '8px', color: '#1a1a1a' }}>{c.label}</p>
-                  <p style={{ fontSize: '12px', color: '#6b6b6b' }}>{c.sub}</p>
+            <div className="grid sm:grid-cols-2 sm:gap-x-8">
+              {capabilities.map((item, index) => (
+                <div key={item.label} className="flex items-center gap-4 border-t border-black/10 py-5">
+                  <span className="h-10 w-1 shrink-0" style={{ backgroundColor: item.accent }} aria-hidden="true" />
+                  <span className="shrink-0" aria-hidden="true">{item.icon}</span>
+                  <div className="min-w-0">
+                    <div className="flex items-center gap-2">
+                      <p className="font-bold text-[12px] uppercase tracking-[0.12em] text-ink">{item.label}</p>
+                      <span className="text-[10px] font-semibold tracking-wider text-muted/70">0{index + 1}</span>
+                    </div>
+                    <p className="mt-1 text-[13px] leading-snug text-muted">{item.sub}</p>
+                  </div>
                 </div>
               ))}
             </div>
 
-            {/* Stats — fixed at bottom */}
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', borderTop: B }}>
-              {stats.map((s, i) => (
-                <div key={s.label} style={{
-                  backgroundColor: '#fff',
-                  textAlign: 'center',
-                  padding: '16px 8px',
-                  borderRight: i < 2 ? B : 'none',
-                }}>
-                  <div style={{ fontWeight: 700, fontSize: '22px', color: '#c94c2e', fontFamily: '"Playfair Display", serif', lineHeight: 1 }}>{s.value}</div>
-                  <div style={{ fontSize: '10px', textTransform: 'uppercase', letterSpacing: '0.12em', color: '#6b6b6b', marginTop: '6px' }}>{s.label}</div>
+            <div className="mt-6 grid grid-cols-3 border-t border-black/15 pt-6">
+              {stats.map((stat) => (
+                <div key={stat.label} className="min-w-0 px-2 first:pl-0 last:pr-0">
+                  <div className="font-display text-[clamp(20px,2.5vw,28px)] font-bold leading-none text-terracotta">{stat.value}</div>
+                  <div className="mt-2 text-[9px] uppercase leading-snug tracking-[0.12em] text-muted sm:text-[10px]">{stat.label}</div>
                 </div>
               ))}
             </div>
           </div>
 
-          {/* ── Right: text, vertically centered ── */}
-          <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
-            <p className="eyebrow" style={{ marginBottom: '12px' }}>About Me</p>
-            <h2 style={{ fontFamily: '"DM Sans", sans-serif', fontWeight: 700, fontSize: 'clamp(24px, 3vw, 36px)', lineHeight: 1.2, color: '#1a1a1a', marginBottom: '20px' }}>
-              I'm a Full Stack Developer<br />building for the web.
+          <div className="flex flex-col justify-center">
+            <p className="eyebrow mb-3">About me</p>
+            <h2 className="mb-5 font-sans text-[clamp(26px,3vw,38px)] font-bold leading-[1.15] text-ink">
+              I'm a Full Stack Developer building for the web.
             </h2>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '12px', fontSize: '14.5px', lineHeight: 1.7, color: '#6b6b6b' }}>
+            <div className="flex flex-col gap-4 text-[15px] leading-[1.75] text-muted">
               <p>
                 I'm a Computer Engineering student from Pune who got completely
                 hooked on web development and hasn't looked back since. Most of
@@ -80,18 +82,18 @@ export default function About() {
                 making them feel fast, clean, and intuitive to use.
               </p>
               <p>
-                Right now I work as a{' '}
-                <span style={{ color: '#c94c2e', fontWeight: 600 }}>Full Stack Developer at CodeServeTech Pvt Ltd</span>,
-                where I ship real features for real users. Before that I trained at
-                Corizo. What I love most is the loop — build an idea, put it in
-                front of people, then make it better.
+                I completed a Full Stack Developer internship at{' '}
+                <span className="font-semibold text-terracotta">CodeServeTech Pvt Ltd, Pune</span>{' '}
+                from May 2026 to June 2026, contributing to real product features.
+                Before that I trained at Corizo. What I love most is the loop —
+                build an idea, put it in front of people, then make it better.
               </p>
               <p>
                 Outside of code I'm reading about system design, exploring new
                 tools, or pushing a side project across the finish line.
               </p>
             </div>
-            <div style={{ marginTop: '28px' }}>
+            <div className="mt-8">
               <a href="#contact" className="btn-terra">Get in Touch</a>
             </div>
           </div>

@@ -24,76 +24,89 @@ export default function Hero() {
   }, [displayed, deleting, roleIdx])
 
   return (
-    <section id="home" className="min-h-screen flex items-center pt-20">
-      <div className="container-max w-full grid md:grid-cols-[1.15fr_1fr] gap-10 md:gap-0 items-center py-12 md:py-0">
+    <section id="home" className="relative flex min-h-screen items-center overflow-hidden pt-20">
+      <div className="container-max grid w-full items-center gap-12 py-12 md:grid-cols-[1.05fr_.95fr] md:gap-8 md:py-16 lg:gap-12">
 
-        {/* ─── Left ─── */}
         <div className="animate-fade-up">
-          <p className="eyebrow mb-5 flex items-center gap-2">
-            <span className="inline-block w-2 h-2 bg-terracotta rounded-full"></span>
-            Hi, my name is Siddhi.
+          <p className="eyebrow mb-6 flex items-center gap-3">
+            <span className="inline-block h-2 w-2 rounded-full bg-terracotta" />
+            Portfolio <span className="text-terracotta">/</span> Pune, India
           </p>
 
-          <h1 className="font-display italic font-bold text-ink leading-tight"
-              style={{ fontSize: 'clamp(44px, 6.5vw, 72px)' }}>
+          <h1
+            className="max-w-2xl font-display italic font-bold leading-[1.04] text-ink"
+            style={{ fontSize: 'clamp(40px, 6.2vw, 72px)' }}
+            aria-label={`I'm a ${roles[roleIdx]}, building for the web.`}
+          >
             I'm a{' '}
-            <span className="relative">
-              {displayed}<span className="animate-blink border-r-[3px] border-terracotta ml-0.5">&nbsp;</span>
-              <span
-                className="absolute left-0 -bottom-1 h-[3px] bg-[#f5a220]"
-                style={{ width: '100%' }}
-              ></span>
+            <span className="relative text-terracotta underline decoration-[#f5a220] decoration-[3px] underline-offset-4">
+              {displayed || '\u00a0'}
+              <span className="animate-blink ml-0.5 border-r-[3px] border-terracotta">&nbsp;</span>
+            </span>
+            <span className="mt-3 block font-sans text-[0.54em] font-semibold not-italic leading-tight text-ink">
+              building for the web.
             </span>
           </h1>
 
-          <p className="mt-7 text-muted text-base md:text-[17px] leading-relaxed max-w-lg">
-            Full Stack Developer working with the MERN stack — building scalable,
-            real-world web applications. Currently at{' '}
-            <span className="text-terracotta font-semibold">CodeServeTech Pvt Ltd</span>,
-            Pune.
+          <p className="mt-7 max-w-xl text-base leading-relaxed text-muted md:text-[17px]">
+            I build clean, useful web applications with React, Node, and Express.
+            I recently completed a Full Stack Developer internship at{' '}
+            <span className="font-semibold text-terracotta">CodeServeTech Pvt Ltd, Pune</span>{' '}
+            (May 2026 – June 2026).
           </p>
 
           <div className="mt-8 flex flex-wrap gap-4">
-            <a href="#about" className="btn-terra">About Me</a>
-            <a href="#projects" className="btn-terra-outline">View Projects</a>
+            <a href="#projects" className="btn-terra">View Projects</a>
+            <a href="#about" className="btn-terra-outline">About Me</a>
+          </div>
+
+          <div className="mt-8 flex flex-wrap items-center gap-x-3 gap-y-2 text-[12px] font-semibold uppercase tracking-[0.14em] text-muted">
+            <span className="h-px w-9 bg-terracotta" />
+            <span>React</span><span className="text-terracotta">·</span>
+            <span>Node.js</span><span className="text-terracotta">·</span>
+            <span>MongoDB</span>
           </div>
         </div>
 
-        {/* ─── Right — orange circle + floating icons ─── */}
-        <div className="relative flex justify-center md:justify-end animate-fade-up">
-          {/* Floating chips */}
-          <div className="float-chip" style={{ top: '6%', left: '4%' }}>
+        <div className="relative flex min-h-[320px] items-center justify-center animate-fade-up md:min-h-[430px] md:justify-end">
+          <div
+            aria-hidden="true"
+            className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full border border-terracotta/20 md:left-[58%]"
+            style={{ width: 'min(76vw, 430px)', height: 'min(76vw, 430px)' }}
+          />
+
+          <span aria-hidden="true" className="absolute bottom-[-26px] right-0 z-0 select-none font-display text-[clamp(130px,20vw,220px)] font-bold leading-none text-terracotta/5">
+            SK
+          </span>
+
+          <div className="float-chip absolute left-[2%] top-[12%] hidden lg:flex">
             <span style={{ color: '#61DAFB' }}>⚛</span> React.js
           </div>
-          <div className="float-chip" style={{ top: '12%', right: '2%' }}>
+          <div className="float-chip absolute right-[-2%] top-[17%] hidden lg:flex">
             <span style={{ color: '#68A063' }}>⬡</span> Node.js
           </div>
-          <div className="float-chip" style={{ bottom: '18%', left: '0%' }}>
+          <div className="float-chip absolute bottom-[21%] left-[-2%] hidden lg:flex">
             <span style={{ color: '#4DB33D' }}>🍃</span> MongoDB
           </div>
-          <div className="float-chip" style={{ bottom: '8%', right: '4%' }}>
+          <div className="float-chip absolute bottom-[10%] right-[3%] hidden lg:flex">
             <span style={{ color: '#F7DF1E' }}>JS</span> JavaScript
           </div>
-          <div className="float-chip" style={{ top: '50%', right: '-2%', transform: 'translateY(-50%)' }}>
+          <div className="float-chip absolute right-[-5%] top-1/2 hidden -translate-y-1/2 lg:flex">
             <span style={{ color: '#38BDF8' }}>◈</span> Tailwind
           </div>
 
-          {/* Orange circle */}
-          <div className="relative animate-float" style={{ width: 'clamp(260px, 38vw, 400px)', height: 'clamp(260px, 38vw, 400px)' }}>
-            <div
-              className="w-full h-full rounded-full overflow-hidden"
-              style={{ backgroundColor: '#f5a220' }}
-            >
+          <div className="relative z-10 animate-float" style={{ width: 'clamp(250px, 35vw, 390px)', height: 'clamp(250px, 35vw, 390px)' }}>
+            <div aria-hidden="true" className="absolute -inset-3 rotate-6 rounded-full border border-black/15" />
+            <div className="relative h-full w-full overflow-hidden rounded-full bg-orange-hero">
               <img
                 src="/profile.jpg"
                 alt="Siddhi Kale"
-                className="w-full h-full object-cover"
+                className="h-full w-full object-cover"
                 style={{ objectPosition: '50% 18%', transform: 'scale(1.55)', transformOrigin: '50% 22%' }}
               />
             </div>
 
-            {/* Badge */}
-            <div className="absolute -bottom-3 left-1/2 -translate-x-1/2 bg-white px-4 py-2 shadow-md text-xs font-bold uppercase tracking-widest whitespace-nowrap border-b-2 border-terracotta">
+            <div className="absolute -bottom-3 left-1/2 -translate-x-1/2 whitespace-nowrap border-b-2 border-terracotta bg-white px-4 py-2 text-xs font-bold uppercase tracking-widest shadow-md">
               MERN · Full Stack
             </div>
           </div>
