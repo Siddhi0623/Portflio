@@ -58,6 +58,7 @@ export default function Hero() {
           <div className="mt-8 flex flex-wrap gap-4">
             <a href="#projects" className="btn-terra">View Projects</a>
             <a href="#about" className="btn-terra-outline">About Me</a>
+            <a href="/Siddhi_Kale_FullStack_Resume.pdf" download className="btn-terra-outline">Download Resume</a>
           </div>
 
           <div className="mt-8 flex flex-wrap items-center gap-x-3 gap-y-2 text-[12px] font-semibold uppercase tracking-[0.14em] text-muted">
@@ -68,10 +69,10 @@ export default function Hero() {
           </div>
         </div>
 
-        <div className="relative flex min-h-[320px] items-center justify-center animate-fade-up md:min-h-[430px] md:justify-end">
+        <div className="relative flex min-h-[320px] items-center justify-center animate-fade-up md:min-h-[430px]">
           <div
             aria-hidden="true"
-            className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full border border-terracotta/20 md:left-[58%]"
+            className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full border border-terracotta/20"
             style={{ width: 'min(76vw, 430px)', height: 'min(76vw, 430px)' }}
           />
 
@@ -79,19 +80,19 @@ export default function Hero() {
             SK
           </span>
 
-          <div className="float-chip absolute left-[2%] top-[12%] hidden lg:flex">
+          <div className="float-chip absolute z-20 hidden lg:flex" style={{ top: '12%', left: '-20%' }}>
             <span style={{ color: '#61DAFB' }}>⚛</span> React.js
           </div>
-          <div className="float-chip absolute right-[-2%] top-[17%] hidden lg:flex">
+          <div className="float-chip absolute z-20 hidden lg:flex" style={{ top: '17%', right: '-20%' }}>
             <span style={{ color: '#68A063' }}>⬡</span> Node.js
           </div>
-          <div className="float-chip absolute bottom-[21%] left-[-2%] hidden lg:flex">
+          <div className="float-chip absolute z-20 hidden lg:flex" style={{ bottom: '21%', left: '-20%' }}>
             <span style={{ color: '#4DB33D' }}>🍃</span> MongoDB
           </div>
-          <div className="float-chip absolute bottom-[10%] right-[3%] hidden lg:flex">
+          <div className="float-chip absolute z-20 hidden lg:flex" style={{ bottom: '10%', right: '-20%' }}>
             <span style={{ color: '#F7DF1E' }}>JS</span> JavaScript
           </div>
-          <div className="float-chip absolute right-[-5%] top-1/2 hidden -translate-y-1/2 lg:flex">
+          <div className="float-chip absolute z-20 hidden -translate-y-1/2 lg:flex" style={{ top: '50%', right: '-20%' }}>
             <span style={{ color: '#38BDF8' }}>◈</span> Tailwind
           </div>
 

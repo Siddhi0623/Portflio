@@ -24,7 +24,7 @@ const projects = [
     highlights: ['Plan-tier & redundancy detection', 'API credits vs retail comparison', 'Annual billing discount analysis', 'Clean minimal landing flow'],
     stack: ['Next.js', 'React', 'TypeScript', 'Tailwind'],
     live: 'https://ai-audit-spend-eight.vercel.app/',
-    flip: true,
+    flip: false,
   },
   {
     tag: 'Marketing Site',
